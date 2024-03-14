@@ -1,0 +1,34 @@
+name: "OasisStaff"
+main: "me.srcode.oasisstaff.PluginLauncher"
+version: "1.0"
+author: "SrCode"
+description: "Advanced moderation plugin [PRIVATE] [Property of OasisMC]"
+api-version: 1.19
+commands:
+  staff:
+    usage: "/<command>"
+  chatprivate:
+    usage: "/<command>"
+  stp:
+    usage: "/<command>"
+  vanish:
+    usage: "/<command>"
+  freeze:
+    usage: "/<command>"
+  randomplayer:
+    usage: "/<command>"
+  oasisstaff:
+    usage: "/<command>"
+  xray:
+    usage: "/<command>"
+  chatclear:
+    usage: "/<command>"
+  chattoggle:
+    usage: "/<command>"
+  invsee:
+    usage: "/<command>"
+depend:
+  - SternalBoard
+  - TAB
+softdepend:
+  - PlaceholderAPI

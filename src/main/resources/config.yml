@@ -1,0 +1,192 @@
+#Exclusive plugin for OasisMC
+#Plugin developed by SrCode
+messages:
+
+  #General
+  no-permission: "&cNo tienes permiso para hacer esto!"
+  reload: "&aHas recargando el plugin con exito!"
+
+
+  #Chat
+  chatclear-executor: "&aHas limpiado el chat"
+  chatclear-players: "&aEl jugador %player% borro el chat"
+
+  chattoggle-executor-off: "&cHas desactivado el chat"
+  chattoggle-executor-on: "&aHas activado el chat"
+  chattoggle-players-on: "&aEl chat fue activado por %player%"
+  chattoggle-players-off: "&cEl chat fue desactivado por %player%"
+  chat-disabled: "&cEl chat esta desactivado"
+
+  #Inventory
+  inventory-see-save-done: "&aHas actualizado el inventario"
+  inventory-see-save-cancel: "&cNo tienes permiso para guardar el inventario"
+  inventory-see-enderchest-cancel: "&cNo puedes previsualizar el enderchest"
+  inventory-see-invalid: "&cDebes especificar un jugador"
+  inventory-see-notfound: "&cEl jugador no existe o no esta conectado"
+
+  #Freeze
+  freeze-player: "&cHas sido congelado por &a<player>"
+  unfreeze-player: "&cHas sido descongelado por &a<player>"
+
+  freeze-staff: "&cHas congelado a &a<player>"
+  unfreeze-staff: "&cHas sido descongelado por &a<player>"
+  try-freeze-staff: "&cNo puedes congelar a un staff"
+  freeze-invalid: "&cComando Incompleto. Usa /freeze jugador"
+  freeze-notfound: "&cEl jugador no esta conectado o no existe."
+  freeze-me: "&cNo puedes congelarte a ti mismo."
+
+  #StaffMode
+  staffmode-join: "&aHas ingresado al modo staff"
+  staffmode-quit: "&cHas salido del modo staff"
+
+  #Vanish
+  vanish-on: "&aAhora eres INVISIBLE!"
+  vanish-off: "&cAhora eres VISIBLE!"
+  vanish-instaff: "&cNo puedes usar este comando en modo staff!"
+
+  #XRAY
+  xray-on: "&aAlertas activadas"
+  xray-off: "&cAlertas desactivadas"
+  xray-invalid: "&cComando Incompleto. Usa /xray toggle"
+
+  #RTP
+  random-tp-cancelled: "&cNo hay jugadores suficientes"
+  random-tp-successfully: "&aHas sido teletransportado hacia &e<player>"
+
+  #ChatPrivate
+  private-chat-unknown: "&cNo tienes a ningun jugador con quien hablar por privado"
+  staff-private-chat-on: "&aHas activado el chat privado"
+  staff-private-chat-off: "&cHas desactivado el chat privado"
+  player-private-chat-on: "&aEl staff ha activado el chat privado"
+  player-private-chat-off: "&cEl staff ha desactivado el chat privado"
+  private-chat-format: "&9&l[SS] &e<sender> &7-> &6<receiver>&7: <message>"
+
+inventory-preview-name: "&8Previsualizacion de Inventario"
+inventory-see:
+  information:
+    display-name: "&aInformacion Del Usuario"
+    lore:
+      - "&fNombre: &a%player_name%"
+      - "&fRango: %vault_prefix%"
+      - "&fKills: &4%statistic_player_kills%"
+      - "&fMuertes: &c%statistic_deaths%"
+      - "&fJugado: &b%statistic_hours_played%h"
+
+  enderchest:
+    display-name: "&dPrevisualizar EnderChest"
+    lore:
+      - "&7&l| &fClick para poder"
+      - "&7&l| &fVer el contenido del enderchest"
+      - "&7&l| &fDe este jugador."
+  save-inventory:
+    display-name: "&aGuardar Inventario"
+    lore:
+      - "&7&l| &fGuarda los cambios que"
+      - "&7&l| &fHicistes en este inventario."
+
+executed_commands:
+  commands:
+    - "ban %player% Se ha desconectado en SS"
+
+x-ray:
+  blocks:
+    #World
+    - "COPPER_ORE"
+    - "DEEPSLATE_COPPER_ORE"
+    - "COAL_ORE"
+    - "DEEPSLATE_COAL_ORE"
+    - "IRON_ORE"
+    - "DEEPSLATE_IRON_ORE"
+    - "GOLD_ORE"
+    - "DEEPSLATE_GOLD_ORE"
+    - "DIAMOND_ORE"
+    - "DEEPSLATE_DIAMOND_ORE"
+    - "EMERALD_ORE"
+    - "DEEPSLATE_EMERALD_ORE"
+    #Nether
+    - "NETHER_QUARTZ_ORE"
+    - "NETHER_GOLD_ORE"
+    - "ANCIENT_DEBRIS"
+  message: "&fEl jugador &a<player> &fha minado un bloque de &a<block_type> "
+  message-teleport: "&2&l[TP]"
+
+tags:
+  freeze: "&c[ CONGELADO ]"
+  staff: "&a[ MODO STAFF ]"
+
+scoreboard:
+  title: "&x&4&a&d&6&d&6&lO&x&4&e&c&c&d&d&lA&x&5&3&c&1&e&3&lS&x&5&7&b&7&e&a&lI&x&5&b&a&d&f&0&lS&x&6&0&a&2&f&7&lM&x&6&4&9&8&f&d&lC"
+  lines:
+    - ""
+    - "&6&lSTAFF"
+    - " &fInvisible &a<vanish>"
+    - " &fOnline: &6%server_online%&f/&6%server_max_players%"
+    - ""
+    - "&6&lCOMANDOS"
+    - "&6/freeze user"
+    - "&6/xray toggle"
+    - "&6/staff"
+    - "&6/chatprivate"
+    - "&6/invsee jugador"
+    - "&6/randomplayer"
+
+items:
+  vanish:
+    material: LIME_DYE
+    material-2: GRAY_DYE
+    display-name: "&aVisible &7(Click Derecho)"
+    display-name-2: "&cInvisible &7(Click Derecho)"
+    slot: 8
+    lore:
+      - ""
+      - "&7&l| &fAlterna tu modo vanish"
+      - "&7&l| &fPara poder espectear a los usuarios"
+      - "&7&l| &fSospechosos."
+      - ""
+  freeze:
+    material: ICE
+    display-name: "&bCongelar &7(Click Derecho)"
+    slot: 5
+    lore:
+      - ""
+      - "&7&l| &fCongela a un usuario por usar"
+      - "&7&l| &fCosas no permitidas en el servidor."
+      - ""
+  inventory-see:
+    material: CHEST
+    display-name: "&6Ver Inventario &7(Click Derecho)"
+    slot: 3
+    lore:
+      - ""
+      - "&7&l| &fRevisa el contenido de inventario"
+      - "&7&l| &fDe un usuario para revisar que todo"
+      - "&7&l| &fEste legal."
+      - ""
+  random-tp:
+    material: CLOCK
+    display-name: "&eTp Aleatorio &7(Click Derecho)"
+    slot: 0
+    lore:
+      - ""
+      - "&7&l| &fVe a un jugador aleatorio"
+      - "&7&l| &fDel servidor para conseguir"
+      - "&7&l| &fPersonas que usen cosas ilegales."
+      - ""
+
+#Permissions:
+#ChatClear: kingdomstaff.command.chatclear
+#ChatPrivate: kingdomstaff.command.chatprivate
+#ChatToggle: kingdomstaff.command.chattoggle
+#Freeze: kingdomstaff.command.freeze
+#Invsee: kingdomstaff.command.invsee
+#Reload: kingdomstaff.command.reload
+#RandomPlayer: kingdomstaff.command.rtp
+#StaffMode: kingdomstaff.command.staffmode
+#XRay-Tp: kingdomstaff.command.xraytp
+#Vanish: kingdomstaff.command.vanish
+#Xray Use: kingdomstaff.command.xraytoggle
+#ChatToggle Bypass: kingdomstaff.chattoggle.bypass
+#Enderchest Preview: kingdomstaff.preview.enderchest
+#Enderchest Remove: kingdomstaff.remove.enderchest
+#Inventory Remove: kingdomstaff.inventory.remove
+#Plugin Version: kingdomstaff.command.version
